@@ -8,6 +8,9 @@ operations. This was before I knew a C port of GLM existed (CGLM). Now that I
 knew of it, I simply gave myself a vacation from implementing this kind of math
 from scratch.
 
+Also included are the test cases for this library, which I have written using
+libcheck.
+
 ## License
 Like libstudium, this old portion of it is distributed under the LGPL v3.0
 license.
