@@ -10,7 +10,10 @@
 
 /* 2D Vector */
 typedef struct {
-    float x, y;
+    union {
+	float A[2];
+	float x, y;
+    };
 } st_vec2;
 
 // Vector arithmetic
@@ -33,7 +36,10 @@ void    st_vec2_print(const st_vec2* a);
 
 /* 3D Vector */
 typedef struct {
-    float x, y, z;
+    union {
+	float A[3];
+	float x, y, z;
+    };
 } st_vec3;
 
 // Vector arithmetic
@@ -57,7 +63,10 @@ void    st_vec3_print(const st_vec3* a);
 
 /* 4D Vector */
 typedef struct {
-    float x, y, z, w;
+    union {
+	float A[4];
+	float x, y, z, w;
+    };
 } st_vec4;
 
 // Vector arithmetic
@@ -94,7 +103,7 @@ st_mat2 st_mat2_transpose(const st_mat2* a);
 st_mat2 st_mat2_sum(const st_mat2* a, const st_mat2* b);
 st_mat2 st_mat2_sub(const st_mat2* a, const st_mat2* b);
 st_mat2 st_mat2_mult(const st_mat2* a, const st_mat2* b);
-int st_mat2_inverse(st_mat2* dest, const st_mat2* a);
+int     st_mat2_inverse(st_mat2* dest, const st_mat2* a);
 
 // Scalar operations
 st_mat2 st_mat2_scalar_mult(float c, const st_mat2* a);
@@ -123,7 +132,7 @@ st_mat3 st_mat3_transpose(const st_mat3* a);
 st_mat3 st_mat3_sum(const st_mat3* a, const st_mat3* b);
 st_mat3 st_mat3_sub(const st_mat3* a, const st_mat3* b);
 st_mat3 st_mat3_mult(const st_mat3* a, const st_mat3* b);
-int st_mat3_inverse(st_mat3* dest, const st_mat3* a);
+int     st_mat3_inverse(st_mat3* dest, const st_mat3* a);
 
 // Scalar operations
 st_mat3 st_mat3_scalar_mult(float c, const st_mat3* a);
