@@ -12,7 +12,9 @@
 typedef struct {
     union {
 	float A[2];
-	float x, y;
+	struct {
+	    float x, y;
+	};
     };
 } st_vec2;
 
@@ -38,7 +40,9 @@ void    st_vec2_print(const st_vec2* a);
 typedef struct {
     union {
 	float A[3];
-	float x, y, z;
+	struct {
+	    float x, y, z;
+	};
     };
 } st_vec3;
 
@@ -65,7 +69,9 @@ void    st_vec3_print(const st_vec3* a);
 typedef struct {
     union {
 	float A[4];
-	float x, y, z, w;
+	struct {
+	    float x, y, z, w;
+	};
     };
 } st_vec4;
 
