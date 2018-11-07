@@ -78,6 +78,7 @@ typedef struct {
 // Vector arithmetic
 st_vec4 st_vec4_zero();
 st_vec4 st_vec4_one();
+st_vec4 st_vec4_origin();
 st_vec4 st_vec4_new(const float values[static 4]);
 st_vec4 st_vec4_sum(st_vec4 a, st_vec4 b);
 st_vec4 st_vec4_sub(st_vec4 a, st_vec4 b);
@@ -177,10 +178,34 @@ float   st_mat4_det(const st_mat4* a);
 void    st_mat4_print(const st_mat4* a);
 
 
+
 /* Determinant predicates */
 float   st_orient2d(st_vec2 a, st_vec2 b, st_vec2 c);
-// The following require an st_mat4
-/* float   st_orient3d(st_vec3 a, st_vec3 b, st_vec3 c); */
+float   st_orient3d(st_vec3 a, st_vec3 b, st_vec3 c, st_vec3 d);
 /* float   st_incircle2d(st_vec2 a, st_vec2 b, st_vec2 c, st_vec2 d); */
+/* float   st_insphere(st_vec3 a, st_vec3 b, st_vec3 c, st_vec3 d, st_vec3 e); */
+
+
+
+
+/* Matrix-vector products */
+st_vec2 st_matvec_mult2(const st_mat2* m, const st_vec2* v);
+st_vec3 st_matvec_mult3(const st_mat3* m, const st_vec3* v);
+st_vec4 st_matvec_mult4(const st_mat4* m, const st_vec4* v);
+
+
+
+/* Graphics operations */
+// Translation
+void    st_translate2(st_mat4* matrix, st_vec2 coords);
+void    st_translate3(st_mat4* matrix, st_vec3 coords);
+
+// Scaling
+void    st_scale(st_mat4* matrix, int axis, float factor);
+void    st_scale2(st_mat4* matrix, st_vec2 factor);
+void    st_scale3(st_mat4* matrix, st_vec3 factor);
+
+// Euler rotation
+void    st_rotate(st_mat4* matrix, int axis, float theta);
 
 #endif // STMATH_H
